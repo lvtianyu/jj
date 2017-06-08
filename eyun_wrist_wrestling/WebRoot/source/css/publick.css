@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+
+}
+body {
+    font-size: 0.28rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+/*公共样式层*/
+.hidden-style {
+    display: none;
+}
+
+.block-style {
+    display: block;
+}
+
+.active {
+
+}
+/*ceng*/
+.modal-public{
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(153,153,153,0.3);
+    text-align: center;
+}
+/*等待刷新层*/
+.refresh{
+    position: absolute;
+    z-index: 9999;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.3;
+
+}
+.refresh>div{
+    margin: 0 auto;
+    margin-top: 50%;
+    width: 2rem;
+    text-align: center;
+
+}
+.refresh>div>div{
+    font-size: 12px;
+    margin-top: 15px;
+    color: #fff;
+}
+.refresh>div>img{
+    width: .8rem;
+
+    -webkit-animation:rotate 1s infinite linear;
+    animation:rotate 1s infinite linear;
+}
+@-moz-keyframes rotate{
+    0%{
+        -ms-transform:rotate(0deg);
+    }
+    100%{
+        -ms-transform:rotate(360deg);
+    }
+}
+@-webkit-keyframes rotate{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    100%{
+        -webkit-transform:rotate(360deg);
+    }
+}
+@keyframes rotate{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+
+/*提示信息层*/
+.notice{
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    height: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+    -webkit-animation:waitFn .6s  linear;
+    animation:waitFn .6s  linear;
+    color: #31e2cb;
+}
+
+@-moz-keyframes waitFn{
+    0%{
+        height: 0;
+    }
+    25%{
+        height: .1rem;
+    }
+    50%{
+        height: .2rem;
+    }
+    75%{
+        height: .4rem;
+    }
+    100%{
+        height: .6rem;
+    }
+}
+@-webkit-keyframes waitFn{
+    0%{
+        height: 0;
+    }
+    25%{
+        height: .1rem;
+    }
+    50%{
+        height: .2rem;
+    }
+    75%{
+        height: .4rem;
+    }
+    100%{
+        height: .6rem;
+    }
+}
+@keyframes waitFn{
+    0%{
+        height: 0;
+    }
+    25%{
+        height: .1rem;
+    }
+    50%{
+        height: .2rem;
+    }
+    75%{
+        height: .4rem;
+    }
+    100%{
+        height: .6rem;
+    }
+}
+
+.footer-to-record{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    height: .72rem;
+    background-color: #31E2CB;
+    text-align: center;
+    line-height: .72rem;
+    font-size: .3rem;
+}
+.notice-none{
+    text-align: center;
+    font-size: .3rem;
+}
+
+/*所有的下一步按钮公用的代码*/
+.next-btn {
+    display: inline-block;
+    width: 6rem;
+    height: .65rem;
+    line-height: .65rem;
+
+    border-radius: .1rem;
+    box-shadow: 0 2px 1px 1px #2CCCCB;
+    margin-top: 0.37rem;
+}
+
+.next-btn > a {
+    width: inherit;
+    height: inherit;
+    text-decoration: none;
+    color: #fff;
+}
+
+.step-style .active-span, .next-btn-style {
+    background-image: linear-gradient(to right, #2CCCCB, #45E8CD);
+    background-image: -webkit-linear-gradient(to right, #2CCCCB, #45E8CD);
+    color: #fff;
+}
+
+.main-content{
+    width: 100%;
+}
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head lang="ch">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="../source/public-js/locache.min.js"></script>
+
+
+</head>
+<body>
+
+<h1><a href="javascript: toHome()">正在转接中，如果您的浏览器没有自动跳转，请点击这里</a></h1>
+<script>
+
+    window.onload = function () {
+
+        var test1 = location.search.substring(1);//"u=a&b=汉字&c=2:b"
+
+
+        var d = decodeURIComponent(test1); //["nick=a", "name=b", "head=c"]
+
+
+        var array = d.split("&");
+        //nickname,userName,headimgurl,openid,u
+        //u的内容是json字符串
+        /* _redirectDataPojo = {
+         redirectPage : "/pages/index.html", //以/开头，写全文件名
+         param: "", //去掉?后面的必要参数
+         } */
+//        console.log(array)
+        for (var i = 0, len1 = array.length; i < len1; i++) {
+            var obj = array[i];
+
+            var items = obj.split("=");
+            //alert("items: "+items);
+//            alert(items[0] + ":" + items[1]);
+
+
+            locache.session.set(items[0], items[1]);
+
+        }
+
+        toHome();
+    };
+
+    function toHome() {
+        var userType = locache.session.get("userType"),
+                page;
+        if (userType == 2) {
+            page = "participant-view.html";
+        } else {
+            page = "spectator-dress.html";
+
+        }
+        var homeurl = page;
+        alert(homeurl);
+        location.href = homeurl;
+    }
+    </body>
+</html>

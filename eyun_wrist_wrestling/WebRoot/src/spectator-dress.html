@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>观众选取店铺页</title>
+    <script src="../source/js/head-inside.min.js"></script>
+    <script>
+        var list = locationSelfSearch.split("=");
+        if (!u_id) {
+            checkWxLogin(1,list[1]);
+        }
+    </script>
+    <link rel="stylesheet" href="../source/css/spectator-address.min.css">
+</head>
+<body>
+<div>
+    <ul class="list-shop-show" id="list-shop-show">
+        <!--<li class="list-li-border-bottom">-->
+        <!--<div>-->
+        <!--<img src="../source/img/img-defaule-head.png" alt="" id="shop-img">-->
+        <!--</div>-->
+        <!--<ul class="">-->
+        <!--<li>-->
+        <!--<div class="shop-name">-->
+        <!--川味现饭馆(三元桥店)-->
+        <!--</div>-->
+        <!--<div class="shop-position">-->
+        <!--200m-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="ctivity-content">-->
+        <!--参与活动赢家活动免单，更有机会获得用餐9折优惠 打折券-->
+        <!--</div>-->
+        <!--<div class="is-shop">-->
+        <!--<span>活动进行中</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</li>-->
+    </ul>
+
+</div>
+
+<!--关注公司二维码-->
+<div class="logo-win" id="logo-win">
+    <span>方便参与请关注</span>
+    <img src="../source/img/spectator-address-logo.min.png" alt="">
+</div>
+
+<!--提示层-->
+<div class="modal-public hidden-style" id="notice">
+
+    <div class="notice " id="notice-text"></div>
+
+</div>
+
+<!--等待刷新层-->
+<div id="backgroundFefresh" class="refresh hidden-style">
+    <div>
+        <img src="../source/img/refresh-btn.min.png">
+        <div>数据加载中...</div>
+    </div>
+</div>
+
+<script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+<script src="../source/js/spectator-dress.min.js"></script>
+<script src="../source/js/foot-inside.min.js"></script>
+
+</body>
+</html>

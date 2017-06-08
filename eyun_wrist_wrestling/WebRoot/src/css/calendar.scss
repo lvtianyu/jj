@@ -1,0 +1,95 @@
+$font-size-26:.26rem;
+$font-size-32:0.32rem;
+$side:left;
+$base:#31E2CB;
+.main-content{
+  padding-left: .22rem;
+  padding-right: .22rem;
+}
+.main-content>div{
+  width: 100%;
+}
+.heard-calendar{
+  font-size: $font-size-26;
+}
+.heard-calendar>ul{
+  width: inherit;
+}
+//日历页的基本浮动的标准
+.class-li-float{
+  float: $side;
+  width: .97rem;
+}
+.heard-calendar>ul>li{
+@extend .class-li-float;
+  height: 1.45rem;
+  line-height: 1.45rem;
+}
+.content-calendar{
+  height: 7.5rem;
+}
+.content-calendar>li{
+  @extend  .class-li-float;
+
+  height: 0.97rem;
+  line-height: .97rem;
+  font-size: $font-size-32;
+}
+//.today{
+//  border: 1px solid #B3B3B3;
+//}
+.active,.isActive{
+  background-image: radial-gradient($base 55%, #fff 0%);
+  background-image: -webkit-radial-gradient($base 55%, #fff 0%);
+  color: #fff;
+  border-radius: 50%;
+}
+
+.backDay{
+  opacity: 0.5;
+}
+
+.todayTime{
+  margin-top: .2rem;
+}
+.game-over {
+  width: 5rem;
+  height: 2.2rem;
+  background-color: #fff;
+  margin-top: 50%;
+  display: inline-block;
+  border-radius: .1rem;
+  border: 1px solid #e6e6e6;
+  position: relative;
+}
+.game-over>div{
+  line-height: 1rem;
+}
+
+.game-over > ul > li:last-child>span {
+  color: #fff;
+  background-color: #31e2cb
+}
+
+.game-over > ul > li > span {
+  display: inline-block;
+  width: 1.62rem;
+  height: .6rem;
+  line-height: .6rem;
+  border: 1px solid #f6f6f6;
+}
+.game-over > ul {
+  height: 1.2rem
+}
+
+.game-over > ul > li {
+  color: #212121;
+  font-size: .24rem;
+  float: left;
+  width: 50%;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center
+}
+
+

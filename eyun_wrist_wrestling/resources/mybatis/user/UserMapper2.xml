@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liver_cloud.dao.user.UserDao" >
+  <resultMap id="BaseResultMap" type="com.liver_cloud.entity.user.User" >
+    <id column="u_id" property="userId"  />
+    <result column="u_nick_name" property="nickName" />
+    <result column="u_head_img_url" property="headImgUrl" />
+    <result column="u_sex" property="sex" />
+    <result column="u_user_type" property="userType" />
+    <result column="u_wechat_open_id" property="wechatOpenId" />
+    <result column="u_wechat_union_id" property="wechatUnionId" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    u_id, u_nick_name, u_head_img_url,u_sex,u_user_type,u_wechat_open_id,u_wechat_union_id
+  </sql>
+  <select id="selectUserByWechatOpenIdAndType" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where u_wechat_open_id = #{wechatOpenId} and u_user_type = #{userType}
+  </select>
+  <select id="getWechatOpenId" resultType="string" >
+    select u_wechat_open_id
+    from user
+    where u_id = #{userId}
+  </select>
+  
+  <delete id="deleteByPrimaryKey">
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert">
+    insert into user (user_id, user_name, head_url
+      )
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{headUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertUser" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="password != null" >
+        u_password,
+      </if>
+      <if test="nickName != null" >
+        u_nick_name,
+      </if>
+      <if test="headImgUrl != null" >
+        u_head_img_url,
+      </if>
+      <if test="sex != null" >
+        u_sex,
+      </if>
+      <if test="userType != null" >
+        u_user_type,
+      </if>
+      <if test="wechatOpenId != null" >
+        u_wechat_open_id,
+      </if>
+      <if test="wechatUnionId != null" >
+        u_wechat_union_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="password != null" >
+       #{password},
+      </if>
+      <if test="nickName != null" >
+        #{nickName},
+      </if>
+      <if test="headImgUrl != null" >
+       #{headImgUrl},
+      </if>
+      <if test="sex != null" >
+        #{sex},
+      </if>
+      <if test="userType != null" >
+        #{userType},
+      </if>
+      <if test="wechatOpenId != null" >
+        #{wechatOpenId},
+      </if>
+      <if test="wechatUnionId != null" >
+        #{wechatUnionId},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateUserById">
+    update user
+    <set >
+      <if test="nickName != null" >
+        u_nick_name = #{nickName},
+      </if>
+      <if test="headImgUrl != null" >
+         u_head_img_url= #{headImgUrl},
+      </if>
+    </set>
+    where u_id = #{userId}
+  </update>
+  <update id="updateByPrimaryKey" >
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      head_url = #{headUrl,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

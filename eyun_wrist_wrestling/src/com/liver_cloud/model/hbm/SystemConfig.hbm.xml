@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.liver_cloud.platform.model.SystemConfig" table="system_config">
+		<id name="id" column="id" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<property name="name" column="sc_name" type="java.lang.String" />
+
+		<property name="value" column="sc_value" type="java.lang.String" />
+
+		<property name="describe" column="sc_describe" type="java.lang.String" />
+
+	</class>
+</hibernate-mapping>

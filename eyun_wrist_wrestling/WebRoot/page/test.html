@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../source/js/head-inside.js"></script>
+    <script src="../source/public-js/jquery-qrcode.js"></script>
+    <style>
+
+        .img{
+            position: absolute;
+            z-index: 2;
+            top:0
+        }
+        .a{
+            position: relative;
+        }
+        .size-adjust{
+            font-size: 16px;
+            font-family: Microsoft YaHei;
+            font-size-adjust: 0.54;
+            width: 70px;
+            overflow: hidden;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--提示层-->
+<div class="modal-public ">
+
+    <div class="" id="notice-text">1</div>
+    <div class="" id="notice0">2</div>
+
+</div>
+<div id="a" class="a">
+    <div class="img"><img src="../source/img/img-defaule-head.png" alt=""></div>
+</div>
+<div class="size-adjust">women</div>
+<script>
+    $QRCODE = $("#a");
+
+    $QRCODE.qrcode({
+        text: "http://camp.liver-cloud.com/eyun_wrist_wrestling/pages/referee-get-participant.html?s_id=3",
+        width: 160,
+        height: 160
+    });
+
+
+    //    function ajaxFn(data, url,callback) {
+    //        var basicUrl = nodeurl;
+    ////            $.ajax({
+    ////                type: "get",
+    ////                url: basicUrl + url,
+    ////                data:data,
+    ////                dataType: dataType,
+    ////                beforeSend: function (XMLHttpRequest) {
+    ////                    this.notice.show();
+    ////                },
+    ////                success: function (json) {
+    //
+    ////        notice.hide();
+    //        return callback;
+    //
+    ////                },
+    ////                complete: function (XMLHttpRequest) {
+    ////                },
+    ////                error: function () {
+    ////                    this.notice.hide();
+    ////                }
+    ////            });
+    //    }
+
+    function PublickFn(_url, data, callback) {
+
+        this.url = _url;
+        this.callback = callback;
+        this.data = data;
+        this.basicUrl = nodeurl;
+
+    }
+    //    var publicFn={
+    //        url:nodeurl
+    //    };
+    PublickFn.prototype = {
+        constructor: PublickFn,
+        replace_url: function () {
+            console.log(this.url);
+            //locationSelf.replaceUrl(this.url)
+        },
+        href_url: function () {
+            console.log(this.url);
+
+            //locationSelf.href=this.url
+        },
+        ajaxFn: function () {
+//            $.ajax({
+//                type: "get",
+//                url: this.basicUrl + this.url,
+//                data:data,
+//                dataType: dataType,
+//                beforeSend: function (XMLHttpRequest) {
+//                },
+//                success: function (json) {
+
+            var json = {values: "a"};
+            return this.analysisAjax(json);
+
+//                },
+//                complete: function (XMLHttpRequest) {
+//                },
+//                error: function () {
+//                }
+//            });
+        },
+        analysisAjax: function (json) {
+            console.log(this.callback);
+            return this.callback(json)
+        }
+    };
+
+
+    var callback = function (json) {
+        console.log("callback:");
+        console.log(json)
+    };
+
+    $('#notice0').on("click", function () {
+        var data = {
+            s_id: 1
+        };
+
+        var url = "game/getGameInfoBySid.do";
+        var sub = new PublickFn(url, data, callback);
+        sub.ajaxFn();
+        sub = null;
+
+    });
+
+    $('#notice-text').on("click", function () {
+        var json = {values: "a"};
+
+        (function (json) {
+            console.log(callback);
+
+            return callback(json)
+        })(json)
+
+    });
+
+
+    $(function () {
+//        function a() {
+//            var url = "a",
+//                    notice = $("#notice");
+//
+//            var publicFn = new PublickFn();
+//
+//            console.log(publicFn);
+//
+//            publicFn.ajaxFn.call(this, url, notice);
+//
+//        }
+//
+//        a()
+    })
+
+
+</script>
+<script src="../source/js/foot-inside.js"></script>
+</body>
+</html>

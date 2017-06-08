@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>店铺登录页</title>
+    <script src="../source/js/head-inside.js"></script>
+    <style>
+        .main-content {
+            text-align: center;
+        }
+
+        .heard {
+            width: 100%;
+            height: .9rem;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .heard span {
+            display: inline-block;
+            line-height: .9rem;
+            font-size: .3rem;
+            margin-right: .6rem;
+        }
+        .heard > img {
+            width: .33rem;
+            height: .35rem;
+            line-height: .9rem;
+        }
+        .main-content>h1{
+            width: 100%;
+            height: 1rem;
+            font-size: .28rem;
+            font-weight: 100;
+            border-bottom: 1px solid #e6e6e6;
+
+        }
+        .main-content>h1>span{
+            display: inline-block;
+            line-height: 1rem;
+        }
+        .main-content>h1>img{
+            width: .35rem;
+            height: .4rem;
+            line-height: 1rem;
+            margin-right: .25rem;
+        }
+        .main-content>ul{
+            width: 100%;
+        }
+        .main-content>ul>li{
+            width: inherit;
+            height: inherit;
+            line-height: .8rem;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .main-content>ul>li>span{
+            display: inline-block;
+            width: 50%;
+            height: inherit;
+            text-align: left;
+        }
+        .main-content>ul>li>span:last-child{
+            text-align: right;
+            padding-right: .35rem;
+        }
+        .main-content>ul>li>span:first-child{
+            padding-left: .35rem;
+        }
+    </style>
+</head>
+<body>
+<div class="main-content">
+    <div class="heard">
+        <span class="today">2016年8月8日</span>
+        <img src="../source/img/img-defaule-head.png" >
+    </div>
+    <h1>
+        <img src="../source/img/img-defaule-head.png" >已报名总人数：<span>0</span>人
+    </h1>
+    <ul class="level">
+        <li><span>70公斤以下级：</span><span >0</span>人</li>
+        <li><span>70~85公斤级：</span><span >0</span>人</li>
+        <li><span>85公斤以上级：</span><span >0</span>人</li>
+        <li><span>女生人数：</span><span >0</span>人</li>
+    </ul>
+</div>
+
+<div class="next-btn next-btn-style" id="logn-in">
+    创建比赛
+</div>
+
+<div class="modal-public hidden-style notice-public" id="notice">
+    <div class="notice " id="notice-text"></div>
+</div>
+<!--等待刷新层-->
+<div id="backgroundFefresh" class="refresh hidden-style">
+    <div>
+        <img src="../source/img/refresh-btn.png">
+        <div>数据加载中...</div>
+    </div>
+</div>
+<script src="../source/js/foot-inside.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>下载本店的二维码</title><script src="../source/js/head-inside.min.js"></script><script src="../source/public-js/jquery-qrcode.js"></script><style>.a{
+            position: relative;
+            display: none;
+            overflow: hidden;
+            text-align: center;
+            margin-top: .4rem;
+        }
+        img{
+            width: 5rem;
+            height: 5rem;
+        }
+
+        .text{
+            margin-top: .4rem;
+            color: #31e2cb;
+        }</style></head><body><div class="main-content"><div id="a" class="a"></div><div class="text">长按二维码保存图片至手机相册</div></div><script>var $QRCODE = $("#a");
+    $QRCODE.qrcode({
+        text: "http://camp.liver-cloud.com/eyun_wrist_wrestling/pages/shop-info-msg.html?s_id="+oGetVars.s_id,
+        width: 1000,
+        height: 1000
+    });
+        var image = new Image();
+        image.src = document.querySelector('canvas').toDataURL("image/png");
+        $QRCODE.html(image).show();</script><script src="../source/js/foot-inside.js"></script></body></html>

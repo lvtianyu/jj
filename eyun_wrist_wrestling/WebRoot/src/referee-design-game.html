@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="titlePage">店铺登录页</title>
+    <script src="../source/js/head-inside.min.js"></script>
+    <link rel="stylesheet" href="../source/css/referee-design-game.min.css">
+</head>
+<body>
+<div class="main-content">
+    <div class="heard" id="calendar">
+        <!--<span class="today" id="game-date"></span>-->
+        <!--<img src="../source/img/date.min.png" >-->
+        <img src="../source/img/referee-design-game-toCalendar.min.png">
+    </div>
+    <h1>
+        <img src="../source/img/bai.min.png" >已报名总人数：<span id="sum-pepole">0</span>人
+    </h1>
+    <ul class="level">
+        <li><span>70公斤以下级：</span><span id="level-1">0人</span></li>
+        <li><span>70~85公斤级：</span><span id="level-2">0人</span></li>
+        <li><span>85公斤以上级：</span><span id="level-3">0人</span></li>
+        <li><span>女生人数：</span><span id="level-4">0人</span></li>
+    </ul>
+
+</div>
+
+<div class="next-btn next-btn-style new" id="create-game">
+    创建当日比赛
+</div>
+
+<div id="download" class="download ">
+    <img src="../source/img/download.min.png" >
+</div>
+
+<div class="modal-public hidden-style notice-public" id="notice">
+    <div class="notice " id="notice-text"></div>
+</div>
+
+<!--等待刷新层-->
+<div id="backgroundFefresh" class="refresh hidden-style">
+    <div>
+        <img src="../source/img/refresh-btn.min.png">
+        <div>数据加载中...</div>
+    </div>
+</div>
+<script src="../source/js/foot-inside.min.js"></script>
+<script src="../source/js/referee-design-game.min.js"></script>
+</body>
+</html>

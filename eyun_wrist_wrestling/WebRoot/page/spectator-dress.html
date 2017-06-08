@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>观众选取店铺页</title>
+    <script src="../source/js/head-inside.js"></script>
+    <script>
+        var list = locationSelfSearch.split("=");
+        if (!u_id) {
+            checkWxLogin(1)
+        }
+    </script>
+    <style>
+        body{color:#545454}.list-shop-show>li{height:1.9rem}.list-shop-show>li>div{width:1.45rem;text-align:center;line-height:1.9rem}.list-shop-show>li>div>img{width:.88rem;height:.88rem}.list-shop-show>li>div{float:left}.list-shop-show>li>ul{float:right;width:6.05rem}.list-shop-show>li>ul>li{width:100%}.list-shop-show>li>ul>li>div{float:left}.list-shop-show>li>ul>li:first-child{height:.87rem}.list-shop-show>li>ul>li:last-child{height:1.02rem}.shop-name,.ctivity-content{width:4.5rem;height:inherit}.shop-name{border-bottom:1px dashed #e6e6e6}.shop-name,.shop-position{line-height:.87rem}.shop-position,.is-shop{width:1.55rem;height:inherit;text-align:center}.shop-position{font-size:.24rem}.is-shop{font-size:.17rem;line-height:1.02rem}.is-shop>span{background-color:#31e2cb;color:#fff;border-radius:.05rem}.ctivity-content{padding:5px;font-size:.24rem}.list-li-border-bottom{border-bottom:1px solid #e6e6e6}.logo-win{position:fixed;height:1.56rem;width:1.56rem;bottom:0;left:0;animation:runrotate 2s linear;animation-fill-mode:forwards;-webkit-animation:runrotate 2s linear;-webkit-animation-fill-mode:forwards}@-webkit-keyframes runrotate{0%{-webkit-transform:translateX(-20px) rotate(0deg)}20%{-webkit-transform:translateX(1.48rem) rotate(112deg)}40%{-webkit-transform:translateX(2.96rem) rotate(224deg)}60%{-webkit-transform:translateX(4.44rem) rotate(336deg)}80%{-webkit-transform:translateX(5.92rem) rotate(448deg)}100%{-webkit-transform:translateX(6.1rem) rotate(720deg)}}@keyframes runrotate{0%{transform:translateX(-20px) rotate(0deg)}20%{transform:translateX(1.48rem) rotate(112deg)}40%{transform:translateX(2.96rem) rotate(224deg)}60%{transform:translateX(4.44rem) rotate(336deg)}80%{transform:translateX(5.92rem) rotate(448deg)}100%{transform:translateX(6.1rem) rotate(720deg)}}.logo-win>img{width:1.56rem;height:inherit;border-radius:50%}.logo-win>span{display:inline-block;height:.3rem;line-height:.3rem;width:2.5rem;background-color:#31e2cb;text-align:center;border:1px solid #31e2cb;color:#fff;-webkit-animation:run 1.5s linear;-webkit-animation-delay:1.5s;-webkit-animation-fill-mode:forwards;position:absolute;top:-5px;z-index:9;opacity:0;border-radius:2px}@-webkit-keyframes run{0%{opacity:0;-webkit-transform:translateX(100px)}100%{opacity:1;-webkit-transform:translateX(-45px)}}@keyframes run{0%{opacity:0;transform:translateX(100px)}100%{opacity:1;transform:translateX(-45px)}}.logo-win>img,.logo-win>span{float:left}
+    </style>
+</head>
+<body>
+<div>
+    <ul class="list-shop-show" id="list-shop-show">
+        <!--<li class="list-li-border-bottom">-->
+        <!--<div>-->
+        <!--<img src="../source/img/img-defaule-head.png" alt="" id="shop-img">-->
+        <!--</div>-->
+        <!--<ul class="">-->
+        <!--<li>-->
+        <!--<div class="shop-name">-->
+        <!--川味现饭馆(三元桥店)-->
+        <!--</div>-->
+        <!--<div class="shop-position">-->
+        <!--200m-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="ctivity-content">-->
+        <!--参与活动赢家活动免单，更有机会获得用餐9折优惠 打折券-->
+        <!--</div>-->
+        <!--<div class="is-shop">-->
+        <!--<span>活动进行中</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</li>-->
+    </ul>
+
+</div>
+
+<!--关注公司二维码-->
+<div class="logo-win" id="logo-win">
+    <span>方便参与请关注</span>
+    <img src="../source/img/spectator-address-logo.png" alt="">
+</div>
+
+<!--提示层-->
+<div class="modal-public hidden-style" id="notice">
+
+    <div class="notice " id="notice-text"></div>
+
+</div>
+
+<!--等待刷新层-->
+<div id="backgroundFefresh" class="refresh hidden-style">
+    <div>
+        <img src="../source/img/refresh-btn.png">
+        <div>数据加载中...</div>
+    </div>
+</div>
+
+<script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+<script src="../source/js/spectator-dress-min.js"></script>
+<script src="../source/js/foot-inside.js"></script>
+
+</body>
+</html>

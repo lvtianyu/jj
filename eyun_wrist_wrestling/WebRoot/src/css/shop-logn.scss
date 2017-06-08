@@ -1,0 +1,94 @@
+/*所有的message页面的UL都用的效果*/
+.public-ul {
+  height: 1.05rem;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid #e6e6e6;
+
+}
+
+
+.public-ul > li {
+  height: inherit;
+  line-height: 1.05rem;
+  display: inline-block;
+  float: left;
+  text-align: left;
+}
+
+.public-ul > li:first-child {
+  width:12%;
+}
+
+.public-ul > li:last-child {
+  width: 88%;
+  cursor: pointer;
+}
+
+.public-ul > li input {
+  height: inherit;
+}
+
+.public-ul > li input, select, input, textarea {
+  font-size: .28rem;
+  color: #545454;
+  border: none;
+  width: 100%;
+
+}
+
+.main-content {
+  width: 100%;
+  background-color: #fff;
+  color: #545454;
+  text-align: center;
+  padding-left: .35rem;
+  padding-right:.35rem;
+}
+
+.public-ul img {
+  width: .45rem;
+  height: .45rem;
+  border-radius: 50%;
+}
+.main-content>a{
+  display: inline-block;
+  text-align: left;
+  margin-top: .22rem;
+  width: 100%;
+  color: #26CEB8;
+}
+
+#entry_mark{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color: rgba(0,0,0,.5); 
+    z-index: 999
+}
+#entry_mark  .mark-message {
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-80px;
+    background-color:#fff;
+    z-index:1000;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    width: 300px;
+    height: 160px;
+    text-align: center;
+}
+#entry_mark  .message-top {
+    line-height:40px;
+    border-bottom: 1px solid #e6e6e6;
+}
+#entry_mark  .message-bottom {
+    height: 150px; 
+    padding-top:40px; 
+}
+
+#entry_mark {display: none}

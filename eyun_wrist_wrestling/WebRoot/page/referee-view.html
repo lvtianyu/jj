@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>裁判页面</title>
+    <script src="../source/js/head-inside.js"></script>
+    <style>
+        body{color:#fff}.vs-style,.vs-style>ul{position:relative;width:100%;height:3.81rem}.vs-style{border-bottom:1px solid #e6e6e6}.vs-style>ul>li{width:50%;height:inherit;float:left}.vs-style>ul>li:last-child{float:right}.head-img{width:1.79rem;height:1.79rem;margin:.54rem 1.13rem .12rem .83rem}.head-img>div{width:1.4rem;height:1.4rem;border-radius:50%;box-shadow:0 5px 8px 3px #aaa;margin-left:.19rem}.head-img>div>img{width:inherit;height:inherit;border-radius:50%}.nick-name{height:.26rem;margin:0 1.02rem .47rem .72rem;color:#545454}.support-num{height:.21rem;color:#808080;font-size:.22rem;margin:0 .87rem .42rem .57rem}.nick-name,.support-num{text-align:center}.second-people .head-img{margin:.54rem .83rem .12rem 1.13rem}.second-people .nick-name{margin:0 .72rem .47rem 1.02rem}.second-people .support-num{margin:0 .57rem .42rem .87rem}.make-win{width:2rem;height:.75rem;position:absolute;top:1rem;right:2.75rem;bottom:2.05rem;border-radius:.1rem;background-color:rgba(100,100,100,.1);text-align:center;box-shadow:0 1px 9px 2px rgba(100,100,100,.1) inset}.make-win>img{width:.9rem;height:.65rem;margin-top:.05rem}.kilo-style{height:.80rem;border-bottom:1px solid #e6e6e6}.kilo-style>ul>li{width:50%;height:inherit;line-height:.81rem;color:#333;float:left}.kilo-style>ul>li:first-child{padding-left:.35rem;padding-right:.18rem}.kilo-style>ul>li:last-child>.show-kilo{width:100%;height:inherit;text-align:right}.show-kilo>span{padding-left:.15rem;padding-right:.25rem}.show-kilo-list{width:inherit;position:absolute;z-index:9}.show-kilo-list>ul{width:100%;text-align:center;border:1px solid #e6e6e6;border-top:0;background-color:#fff}.show-kilo-list>ul>li{border-bottom:1px solid #e6e6e6}.choose-btn{display:inline-block;background-color:#31e2cb;color:#fff;text-align:center;border-radius:.1rem}.choose-btn span{width:2.4rem}.choose-btn b,.choose-btn span{display:inline-block}.choose-btn b{width:.3rem;margin-right:5px}.btn-style{clear:both;margin-top:1rem;width:100%;text-align:center}.btn-style div{display:inline-block;text-align:center;line-height:.65rem}.btn-style>div{width:6.4rem;margin-bottom:.58rem}.btn-style>div{overflow:hidden}.btn-style>ul>li{float:left;height:.82rem;width:50%}.btn-style>ul>li div{width:2.9rem;border-radius:.1rem}.btn-style .again{background-color:#1bb149;box-shadow:0 5px .1rem 1px #1bb149}.btn-style .cancel-game{background-color:#ff8d3f;box-shadow:0 5px .1rem 1px #ff8d3f}.btn-style>div>img{width:inherit;height:inherit}.footer-style{position:fixed;bottom:0;width:100%}.footer-style>img{width:100%}.game-over{width:5rem;height:2.74rem;background-color:#f0f0f0;margin-top:50%;display:inline-block;border-radius:.15rem}.game-over>ul>li:first-child{border-right:1px solid #e6e6e6}.game-over>ul>li{color:#3d96fd;font-size:.34rem;float:left;width:50%;height:.8rem;line-height:.8rem}.game-over>div{width:inherit;font-size:.36rem;color:#333;height:1.96rem;line-height:1.96rem;border-bottom:1px solid #e6e6e6}.rules-of-the-game{padding:0 .3rem;margin-bottom:}.rules-of-the-game,.rules-of-the-game>ul{width:100%}.rules-of-the-game>h1{color:#212121;font-size:.28rem}.rules-of-the-game>h1>img{width:.32rem;height:.37rem;margin-right:.15rem}.rules-of-the-game>ul>li{width:100%;color:#545454;margin-top:.4rem;line-height:.32rem;font-size:.26rem;overflow:hidden}.rules-of-the-game>ul>li>b,.rules-of-the-game>ul>li>span{display:table;float:left}.rules-of-the-game>ul>li>b{margin-right:.15rem;margin-top:2px;position:relative;width:.24rem;height:.24rem;background-color:rgba(1,210,188,0.5);border-radius:.12rem}.rules-of-the-game>ul>li>b:before{content:"";position:absolute;top:.05rem;left:.05rem;width:.14rem;height:.14rem;background-color:#01d2bc;border-radius:.07rem}.rules-of-the-game>ul>li>span{width:6.2rem}
+    </style>
+</head>
+<body>
+<div class="main-content">
+    <!--两人对战层-->
+    <div class="vs-style">
+        <!--两人对战画面-->
+        <ul>
+            <li class="frist-people">
+                <div class="head-img">
+                    <div>
+                        <img src="../source/img/img-defaule-head.png" alt="tou" id="frist-head-img">
+                    </div>
+                </div>
+                <div class="nick-name" id="frist-nick-name">
+                    张小凡
+                </div>
+                <div class="support-num" id="frist-support-num">
+                    0人支持他
+                </div>
+            </li>
+            <li class="second-people">
+                <div class="head-img">
+                    <div>
+                        <img src="../source/img/img-defaule-head.png" alt="tou" id="second-head-img">
+                    </div>
+                </div>
+                <div class="nick-name" id="second-nick-name">
+                    张小凡dd
+                </div>
+                <div class="support-num" id="second-support-num">
+                    0人支持他
+                </div>
+            </li>
+        </ul>
+        <!--比赛滑块-->
+        <div class="make-win" id="make-win">
+            <img src="../source/img/victory@2x.png" id="win-btn">
+        </div>
+    </div>
+    <!--重量级别选取-->
+    <div class="kilo-style">
+        <ul>
+            <li>
+                <span><img src="../source/img/kg@2x.png"></span>
+                体重级别
+            </li>
+            <li>
+                <div class="show-kilo">
+                    <div class="choose-btn"><span id="choose-btn"> 选取比赛级别 </span><b> > </b></div>
+                </div>
+                <div class="show-kilo-list hidden-style" id="show-kilo-list">
+                    <ul>
+                        <li class="active" id="0">70公斤级以下</li>
+                        <li id="1">70~85公斤</li>
+                        <li id="2">85公斤级以上</li>
+                        <li id="3">女子级别</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--比赛开始按钮层-->
+    <div class="btn-style">
+        <div id="start-game">
+            <img src="../source/img/start-game-img.png" name="start-game">
+        </div>
+        <!--<ul class="hidden-style">-->
+        <!--<li id="cancel-game">-->
+        <!--<div class="cancel-game">比赛取消</div>-->
+        <!--</li>-->
+        <!--<li id="again">-->
+        <!--<div class="again">再来一局</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+    </div>
+    <!--比赛规则-->
+    <div class="rules-of-the-game">
+        <h1><img src="../source/img/referee-rules.png" alt="">比赛规则</h1>
+        <ul>
+            <li><b></b><span>将对方拳头端部触及比赛台视为胜利</span></li>
+            <li><b></b><span>比赛开始后双方左右掰动手腕，不可将对方手腕向后方掰向自己身体，任何时候，选手肘部都要和垫板接触，单脚离地、肘关节离开台面者比赛</span></li>
+            <li><b></b><span>将对方拳头端部触及比赛台视为胜利</span></li>
+        </ul>
+    </div>
+    <!--脚边-->
+    <div class="footer-style">
+        <img src="../source/img/referee-view-footer.jpg">
+    </div>
+</div>
+
+<!--比赛结束层-->
+<div class="modal-public hidden-style" id="game-over">
+    <div class="game-over">
+        <div>比赛结束</div>
+        <ul>
+            <li id="back-game">返回</li>
+            <li id="ok">确定</li>
+        </ul>
+    </div>
+</div>
+<!--比赛结束层-->
+<div class="modal-public hidden-style" id="game-open">
+    <div class="game-over">
+        <div>是否结束投注,开始比赛</div>
+        <ul>
+            <li id="back-game-open">返回</li>
+            <li id="ok-open">确定</li>
+        </ul>
+    </div>
+</div>
+
+<!--等待刷新层-->
+<div id="backgroundFefresh" class="refresh hidden-style">
+    <div>
+        <img src="../source/img/refresh-btn.png">
+        <div>数据加载中...</div>
+    </div>
+</div>
+
+<!--提示层-->
+<div class="modal-public hidden-style" id="notice">
+    <div class="notice " id="notice-text">请等待参赛者加入!</div>
+
+</div>
+
+
+<script src="../source/public-js/touch-0.2.14.min.js"></script>
+<!--<script src="../source/js/referee-view.js"></script>-->
+<script src="../source/js/referee-view-min.js"></script>
+<script src="../source/js/foot-inside.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参赛者扫码页</title>
+    <script src="../source/js/head-inside.min.js"></script>
+    <link rel="stylesheet" href="../source/css/referee-get-participant.min.css">
+</head>
+<body>
+<div class="to-record-page" id="record-page-btn">
+    店铺活动记录>>
+</div>
+
+<div class="main-content">
+    <div class="QR-code-rgp">
+        <div id="QR-code-rgp" class="active"></div>
+    </div>
+
+    <ul>
+        <li><img src="../source/img/referee-get-code.min.png" alt="">扫一扫参加店铺活动</li>
+    </ul>
+    <div class="to-referee" id="to-referee-btn">
+        <img src="../source/img/to-referee-btn.min.png">
+    </div>
+</div>
+<!--提示层-->
+<div class="modal-public hidden-style" id="notice">
+    <div class="notice " id="notice-text">请等待参赛者加入!</div>
+</div>
+<!--等待刷新层-->
+<div id="backgroundFefresh" class="refresh hidden-style">
+    <div>
+        <img src="../source/img/refresh-btn.min.png">
+        <div>数据加载中...</div>
+    </div>
+</div>
+
+<!--确认比赛层-->
+<div class="modal-public hidden-style" id="game-over">
+
+    <div class="game-over ">
+        <b id="back-game">&times</b>
+        <p><img src="../source/img/referee-get-comein-game.min.png" alt=""></p>
+        <div>
+            <span id="firstName"></span>
+            <img src="../source/img/referee-get-game-vs.min.png">
+            <span id="secondName">xiao</span>
+        </div>
+        <ul>
+            <li id="cancel-game"><span>取消比赛</span></li>
+            <li id="ok"><span class="active">进入比赛</span></li>
+        </ul>
+
+    </div>
+
+</div>
+<script src="../source/public-js/jquery-qrcode.js"></script>
+<script src="../source/js/foot-inside.min.js"></script>
+<script src="../source/js/referee-get-participant.min.js"></script>
+</body>
+</html>

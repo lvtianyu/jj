@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+
+}
+body {
+    font-size: 0.28rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+/*公共样式层*/
+.hidden-style {
+    display: none;
+}
+
+.block-style {
+    display: block;
+}
+
+.active {
+
+}
+/*ceng*/
+.modal-public{
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(153,153,153,0.3);
+    text-align: center;
+}
+/*等待刷新层*/
+.refresh{
+    position: absolute;
+    z-index: 9999;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.3;
+
+}
+.refresh>div{
+    margin: 0 auto;
+    margin-top: 50%;
+    width: 2rem;
+    text-align: center;
+
+}
+.refresh>div>div{
+    font-size: 12px;
+    margin-top: 15px;
+    color: #fff;
+}
+.refresh>div>img{
+    width: .8rem;
+
+    -webkit-animation:rotate 1s infinite linear;
+    animation:rotate 1s infinite linear;
+}
+@-moz-keyframes rotate{
+    0%{
+        -ms-transform:rotate(0deg);
+    }
+    100%{
+        -ms-transform:rotate(360deg);
+    }
+}
+@-webkit-keyframes rotate{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    100%{
+        -webkit-transform:rotate(360deg);
+    }
+}
+@keyframes rotate{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+
+/*提示信息层*/
+.notice{
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    height: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+    -webkit-animation:waitFn .6s  linear;
+    animation:waitFn .6s  linear;
+    color: #31e2cb;
+}
+
+@-moz-keyframes waitFn{
+    0%{
+        height: 0;
+    }
+    25%{
+        height: .1rem;
+    }
+    50%{
+        height: .2rem;
+    }
+    75%{
+        height: .4rem;
+    }
+    100%{
+        height: .6rem;
+    }
+}
+@-webkit-keyframes waitFn{
+    0%{
+        height: 0;
+    }
+    25%{
+        height: .1rem;
+    }
+    50%{
+        height: .2rem;
+    }
+    75%{
+        height: .4rem;
+    }
+    100%{
+        height: .6rem;
+    }
+}
+@keyframes waitFn{
+    0%{
+        height: 0;
+    }
+    25%{
+        height: .1rem;
+    }
+    50%{
+        height: .2rem;
+    }
+    75%{
+        height: .4rem;
+    }
+    100%{
+        height: .6rem;
+    }
+}
+
+.footer-to-record{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    height: .72rem;
+    background-color: #31E2CB;
+    text-align: center;
+    line-height: .72rem;
+    font-size: .3rem;
+}
+.notice-none{
+    text-align: center;
+    font-size: .3rem;
+}
+
+/*所有的下一步按钮公用的代码*/
+.next-btn {
+    display: inline-block;
+    width: 6rem;
+    height: .65rem;
+    line-height: .65rem;
+
+    border-radius: .1rem;
+    box-shadow: 0 2px 1px 1px #2CCCCB;
+    margin-top: 0.37rem;
+}
+
+.next-btn > a {
+    width: inherit;
+    height: inherit;
+    text-decoration: none;
+    color: #fff;
+}
+
+.step-style .active-span, .next-btn-style {
+    background-image: linear-gradient(to right, #2CCCCB, #45E8CD);
+    background-image: -webkit-linear-gradient(to right, #2CCCCB, #45E8CD);
+    color: #fff;
+}
+
+.main-content{
+    width: 100%;
+}
+
+
+// 模态框
+
+#login-mark{
+    position: fixed;
+    width: 100%;
+    top:0;
+    left: 0;
+    bottom: 0;
+    margin-top:0;
+    background-color:rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+#login-mark .login-content{
+    padding: 0.3rem 0.3rem 0 0.3rem; 
+    width: 6rem;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -3rem;
+    margin-top: -2rem;
+    z-index: 1000;
+    background-color:#fff;
+    .login-mark-tips{
+        margin-bottom: 0.28rem;
+    }
+}
+#login-mark div{
+    text-align: center; line-height: 44px;font-size: 0.28rem;
+}
+#login-mark  .login-content div{
+    min-height: 1.3rem; 
+}
+#login-mark  .login-content div p:nth-child(1){
+    text-align: center; 
+}
+#login-mark div span{
+    width:80px;
+    display: inline-block;
+    text-align: right; 
+    line-height: 40px; 
+    vertical-align: top;
+}
+#login-mark div input{height: 34px;
+    width:300px;
+    font-size: 16px;
+    padding-left:8px ;
+    line-height: 38px;
+    vertical-align: top; 
+    color:#aaa
+}
+#login-mark a{
+    display: inline-block;
+    width: 188px;
+    background-color: #109ae4;
+    color:#fff;
+    border-radius: 5px;
+    font-size: 18px;
+}
+#login-mark a:hover{
+    background-color: #2e73d3;
+}
+#login-mark i:hover{
+    course:text
+}
+#login-mark .botttom-box{
+    color:#828282;
+}
+#login-mark #close,#login-mark #makesure{
+    display: inline-block;
+    width: 70px;
+    line-height: 32px;
+    border: 1px solid #BABABA;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 0.2rem;
+}
+#login-mark #close:hover,#login-mark #makesure:hover {
+    border-color: #3E7EF8
+}
+
+//信息提示框，不带按钮
+// 信息弹出框
+#entry_mark{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color: rgba(0,0,0,.5); 
+    z-index: 999;
+    display: none;
+}
+#entry_mark  .mark-message {
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-80px;
+    background-color:#fff;
+    z-index:1000;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    width: 300px;
+    height: 160px;
+    text-align: center;
+}
+#entry_mark  .message-top {
+    line-height:40px;
+    border-bottom: 1px solid #e6e6e6;
+}
+#entry_mark  .message-bottom {
+    height: 150px; 
+    padding-top:40px; 
+}

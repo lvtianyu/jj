@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GameMapper">
+
+	<!-- 根据商户id创建游戏 -->
+	<insert id="createGame" parameterType="pd">
+		<selectKey keyProperty="g_id" resultType="java.lang.Integer"
+			order="AFTER">
+			select LAST_INSERT_ID()
+		</selectKey>
+		insert into game (g_s_id,g_begin,g_cancel,g_finish,g_create_time)
+		values (${s_id},${begin},${cancel},${finish},#{create_time})
+	</insert>
+	<!-- 根据gameId查询game详情 -->
+	<select id="findGameByGameId" parameterType="pd" resultType="pd">
+		select * from game
+		where g_id = #{g_id}
+	</select>
+	<!-- 查询gameId -->
+	<select id="findGameId" parameterType="pd" resultType="pd">
+		select *
+		from game
+		where g_s_id = #{s_id} order by g_create_time desc
+	</select>
+	<!-- 根据u_id查询参赛者信息 -->
+	<select id="getCompetitorsInfoA" parameterType="pd" resultType="pd">
+		select u_id,u_nick_name nickname,u_head_img_url head_portrait
+		from user
+		where u_id = ${g_a}
+	</select>
+
+	<select id="getCompetitorsInfoB" parameterType="pd" resultType="pd">
+		select u_id,u_nick_name nickname,u_head_img_url head_portrait
+		from user
+		where u_id = ${g_b}
+	</select>
+
+	<!-- 获取点赞者信息 -->
+	<select id="getThumbUpUserInfo" parameterType="pd" resultType="pd">
+		select u_nick_name nickname,u_head_img_url head_portrait
+		from user
+		where u_id = ${pr_user_id}
+	</select>
+
+	<select id="getThumbUpNumA" parameterType="pd" resultType="pd">
+		select *
+		from pay_record
+		where pr_order_id = #{g_id} and
+		pr_competitor_id = #{a} and
+		pr_status = 2
+	</select>
+	<select id="getThumbUpNumB" parameterType="pd" resultType="pd">
+		select *
+		from pay_record
+		where pr_order_id = #{g_id} and
+		pr_competitor_id = #{b} and
+		pr_status = 2
+	</select>
+	<update id="participateGameA" parameterType="pd">
+		update game
+		<set>
+			g_a =#{u_id},
+		</set>
+		where g_id = #{g_id}
+	</update>
+	<update id="participateGameB" parameterType="pd">
+		update game
+		<set>
+			g_b =#{u_id},
+		</set>
+		where g_id = #{g_id}
+	</update>
+
+
+	<!-- 根据s_id查询当前游戏id -->
+	<select id="getGameIdBySid" parameterType="pd" resultType="pd">
+		SELECT g_id,g_a,g_b,g_finish
+		FROM game
+		WHERE g_begin=0
+		AND g_cancel=0
+		AND g_finish=0
+		<!-- AND g_create_time > #{beginTime} -->
+		AND g_s_id=#{s_id} order by g_create_time desc;
+	</select>
+
+	<!-- 根据s_id查询所有游戏id  -->
+	<select id = "getGameBySid" parameterType="pd" resultType="pd">
+		SELECT g_id, g_a a, g_b b, g_winner winner, g_level level
+		FROM game 
+		WHERE g_s_id = #{s_id} and g_finish = 1 and g_cancel != 1 AND date(g_create_time) = curdate() ORDER BY g_create_time ASC;
+	</select>
+
+	<!-- 判断游戏开始状态 -->
+	<select id="getGameInfo" parameterType="pd" resultType="pd">
+		select *
+		from game
+		where
+		g_id = #{g_id}
+	</select>
+
+	<update id="updateGameBeginStatu" parameterType="pd">
+		update game
+		<set>
+			g_begin= #{g_begin} , g_create_time = #{create_time}
+		</set>
+		where g_id = #{g_id}
+	</update>
+
+
+	<!-- 取消游戏 -->
+	<select id="getCancelGameInfo" parameterType="pd" resultType="pd">
+		select * from game
+		where
+		g_id = #{g_id}
+	</select>
+
+	<update id="cancelGameStatu" parameterType="pd">
+		update game
+		set g_cancel = #{g_cancel} , g_finish = #{g_finish}
+		where g_id = #{g_id}
+	</update>
+
+	<!-- 查询游戏开始状态 -->
+	<select id="getGameBeginInfo1" parameterType="pd" resultType="pd">
+		select * from game
+		where
+		g_id = #{g_id}
+	</select>
+
+	<select id="getGameBeginInfo2" resultType="pd">
+		select
+		g_begin
+		from game
+		where g_id = #{g_id}
+	</select>
+
+	<!-- 裁判决定参赛者胜负 -->
+	<select id="getGameWinnerInfo" parameterType="pd" resultType="pd">
+		select * from game
+		where
+		g_id = #{g_id}
+	</select>
+	<update id="saveGameWinnerInfo" parameterType="pd">
+		update game
+		<set>
+			g_winner = #{winner} , g_finish = #{g_finish} ,g_level = #{level}
+		</set>
+		where g_id = #{g_id}
+	</update>
+</mapper>

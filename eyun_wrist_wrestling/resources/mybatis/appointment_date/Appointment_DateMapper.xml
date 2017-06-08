@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Appointment_DateMapper">
+	<select id="selectLatestBySid" parameterType="pd" resultType="pd">
+	select * 
+	from appointment_date
+	where ad_s_id = #{r_s_id} and ad_date  &gt;= #{date} 
+	order by ad_date limit 1	
+	</select>
+	
+	<select id="selectAPPInfoLatestBySid" parameterType="pd" resultType="pd">
+	select * 
+	from appointment_date
+	where ad_s_id = #{s_id} and ad_date  &gt;= #{date} 
+	order by ad_date limit 1	
+	</select>
+	
+	<insert id="insertAppDate" parameterType="pd">
+	insert into appointment_date(
+	ad_s_id, ad_date
+	)values(
+	#{s_id},#{date}
+	)
+	</insert>
+	
+	<insert id="batchInsertDate" parameterType="java.util.List">
+	 insert into
+     appointment_date(ad_s_id, ad_date)
+     values
+     (#{s_id},#{date}) 
+	</insert>
+	
+	<select id="selectBySid" parameterType="pd" resultType="pd">
+	select * 
+	from appointment_date
+	where ad_s_id = #{s_id} 
+	order by ad_date desc limit 1		
+	</select>
+	
+	<select id="selectListBySid" parameterType="pd" resultType="pd">
+	select ad_date
+	from appointment_date
+	where ad_s_id = #{s_id} 	
+	</select>
+	
+	<select id="selectByReferee" parameterType="pd" resultType="pd">
+	select *
+	from appointment_date
+	where ad_s_id = #{s_id} and DATE_FORMAT(ad_date, '%Y-%m') = #{date}
+	order by ad_date 
+	
+	</select>
+	
+	<select id="selectByApplicant" parameterType="pd" resultType="pd">
+	select *
+	from appointment_date
+	where ad_s_id = #{s_id} and ad_date &gt;= #{date}	
+	order by ad_date
+	</select>
+	
+	
+	<select id="selectByDateAndSid" parameterType="pd" resultType="pd">
+	select * 
+	from appointment_date
+	where ad_s_id = #{s_id} and ad_date = #{date}	
+	</select>
+	
+
+</mapper>

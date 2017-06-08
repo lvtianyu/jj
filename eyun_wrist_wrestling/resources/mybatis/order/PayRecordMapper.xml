@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liver_cloud.dao.order.PayRecordDao" >
+  <resultMap id="BaseResultMap" type="com.liver_cloud.entity.order.PayRecord" >
+    <id column="pr_id" property="payRecordId"  />
+    <result column="pr_user_id" property="userId" />
+    <result column="pr_order_id" property="orderId" />
+    <result column="pr_pay_type" property="payType" />
+    <result column="pr_device_info" property="deviceInfo" />
+    <result column="pr_body" property="body" />
+    <result column="pr_detail" property="detail" />
+    <result column="pr_trade_no" property="tradeNo" />
+    <result column="pr_fee_type" property="feeType" />
+    <result column="pr_total_fee" property="totalFee" />
+    <result column="pr_spbill_create_ip" property="spbillCreateIp" />
+    <result column="pr_time_start" property="timeStart" />
+    <result column="pr_time_expire" property="timeExpire" />
+    <result column="pr_status" property="status" />
+    <result column="pr_wechat_status" property="wechatStatus" />
+    <result column="pr_competitorId" property="competitorId" />
+  </resultMap>
+  <resultMap id="StateResultMap" type="com.liver_cloud.entity.order.PayRecord" >
+    <id column="pr_id" property="payRecordId"  />
+    <result column="pr_user_id" property="userId" />
+    <result column="pr_order_id" property="orderId" />
+    <result column="pr_pay_type" property="payType" />
+    <result column="pr_device_info" property="deviceInfo" />
+    <result column="pr_trade_no" property="tradeNo" />
+    <result column="pr_status" property="status" />
+    <result column="pr_wechat_status" property="wechatStatus" />
+    <result column="pr_competitorId" property="competitorId" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    pr_id,pr_user_id,pr_order_id,pr_pay_type,pr_device_info,pr_body,pr_detail,pr_trade_no,pr_fee_type,pr_total_fee,pr_spbill_create_ip,pr_time_start,pr_time_expire,pr_status,pr_wechat_status
+  </sql>
+  <select id="selectPayRecordByTradeNo" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from pay_record
+    where pr_trade_no = #{tradeNo}
+  </select>
+  <select id="getWechatOpenId" resultType="string" >
+    select u_wechat_open_id
+    from pay_record
+    where u_id = #{userId}
+  </select>
+  <select id="selectPayStatusByOrderIdAndUserId" resultMap="StateResultMap" >
+    select pr_status,pr_trade_no
+    from pay_record
+    where pr_user_id = #{userId} and pr_order_id = #{orderId}
+  </select>
+  <delete id="deleteByPrimaryKey">
+    delete from pay_record
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertPayRecord" >
+    insert into pay_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        pr_user_id,
+      </if>
+      <if test="orderId != null" >
+        pr_order_id,
+      </if>
+      <if test="payType != null" >
+        pr_pay_type,
+      </if>
+      <if test="deviceInfo != null" >
+        pr_device_info,
+      </if>
+      <if test="body != null" >
+        pr_body,
+      </if>
+      <if test="detail != null" >
+        pr_detail,
+      </if>
+      <if test="tradeNo != null" >
+        pr_trade_no,
+      </if>
+      <if test="feeType != null" >
+        pr_fee_type,
+      </if>
+      <if test="totalFee != null" >
+        pr_total_fee,
+      </if>
+      <if test="spbillCreateIp != null" >
+        pr_spbill_create_ip,
+      </if>
+      <if test="timeStart != null" >
+        pr_time_start,
+      </if>
+      <if test="timeExpire != null" >
+        pr_time_expire,
+      </if>
+      <if test=" status!= null" >
+        pr_status,
+      </if>
+      <if test="wechatStatus != null" >
+        pr_wechat_status,
+      </if>
+      <if test="competitorId != null" >
+        pr_competitor_id,
+      </if>
+      pr_redPacket_status
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="orderId != null" >
+        #{orderId},
+      </if>
+      <if test="payType != null" >
+        #{payType},
+      </if>
+      <if test="deviceInfo != null" >
+        #{deviceInfo},
+      </if>
+      <if test="body != null" >
+        #{body},
+      </if>
+      <if test="detail != null" >
+        #{detail},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo},
+      </if>
+      <if test="feeType != null" >
+        #{feeType},
+      </if>
+      <if test="totalFee != null" >
+        #{totalFee},
+      </if>
+      <if test="spbillCreateIp != null" >
+        #{spbillCreateIp},
+      </if>
+      <if test="timeStart != null" >
+        #{timeStart},
+      </if>
+      <if test="timeExpire != null" >
+        #{timeExpire},
+      </if>
+      <if test=" status != null" >
+        #{status},
+      </if>
+      <if test="wechatStatus != null" >
+        #{wechatStatus},
+      </if>
+      <if test="competitorId != null" >
+        #{competitorId},
+      </if>
+      0
+    </trim>
+  </insert>
+  <update id="updatePayRecordByTradeNo">
+    update pay_record
+    <set >
+      <if test=" status != null" >
+        pr_status=#{status},
+      </if>
+      <if test="wechatStatus != null" >
+       pr_wechat_status= #{wechatStatus},
+      </if>
+      <if test="tradeType != null" >
+       pr_trade_type= #{tradeType},
+      </if>
+      <if test="bankType != null" >
+       pr_bank_type= #{bankType},
+      </if>
+      <if test="transactionId != null" >
+       pr_transaction_id= #{transactionId},
+      </if>
+      <if test="errCode != null" >
+       pr_err_code= #{errCode},
+      </if>
+      <if test="errCodeDes != null" >
+       pr_err_code_des= #{errCodeDes},
+      </if>
+    </set>
+    where pr_trade_no = #{tradeNo}
+  </update>
+  <update id="updateByPrimaryKey" >
+    update pay_record
+    set user_name = #{userName,jdbcType=VARCHAR},
+      head_url = #{headUrl,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <!-- 获取双方点赞金额 -->
+  <select id="redPacketCount" resultType="pd" parameterType="pd">
+    SELECT 
+    (SELECT COUNT(1) FROM pay_record WHERE pr_order_id = #{g_id} AND pr_competitor_id = #{winner} AND pr_status=2)a,
+    (SELECT COUNT(1) FROM pay_record WHERE pr_order_id = #{g_id} AND pr_competitor_id = #{g_b} AND pr_status=2)b;
+  </select>
+  
+  <!-- 获取胜利点赞者信息 -->
+  <select id="getWinnerList" resultType="pd" parameterType="pd">
+   SELECT b.u_wechat_open_id openid,a.pr_redPacket_status, b.u_id,a.pr_trade_no FROM pay_record a,user b WHERE a.pr_order_id = #{g_id} AND a.pr_competitor_id = #{winner} AND a.pr_user_id = b.u_id AND b.u_user_type=1 AND a.pr_status=2;
+  </select>
+  
+  <!-- 更新红包发送状态 -->
+  
+  <update id="updateRedPacketStatus" >
+    update pay_record
+    set pr_redPacket_status = 1
+    where pr_trade_no = #{pr_trade_no}
+  </update>
+  
+  
+  
+  
+</mapper>

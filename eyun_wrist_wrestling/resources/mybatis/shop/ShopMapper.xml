@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ShopMapper">
+	
+	<!-- 查询商家列表 -->
+	<select id="getShopList" parameterType="pd" resultType="pd">
+		select 
+		s_id,
+		s_name,
+		s_description,
+		s_url,
+		s_address
+		<if test="longitude!=null and latitude!=null">
+		,ROUND(ACOS(SIN((${latitude} * 3.1415) / 180 ) *SIN((s_latitude * 3.1415) / 180 ) +COS((${latitude} * 3.1415) / 180 ) * COS((s_latitude * 3.1415) / 180 ) *COS((${longitude} * 3.1415) / 180 - (s_longitude * 3.1415) / 180 ) ) * 6380,2)*1000 s_distance
+		from shop
+		where 1=1
+ 		ORDER BY ACOS(SIN((${latitude} * 3.1415) / 180 ) *SIN((s_latitude * 3.1415) / 180 ) +COS((${latitude} * 3.1415) / 180 ) * COS((s_latitude * 3.1415) / 180 ) *COS((${longitude} * 3.1415) / 180 - (s_longitude * 3.1415) / 180 ) ) * 6380 DESC 
+		</if>
+		<if test="longitude==null and latitude==null">
+		from shop
+		where 1=1
+		</if>
+	</select>
+	
+	<update id="updateLastLogin" parameterType="User">
+		update SYS_USER set 
+		LAST_LOGIN=#{LAST_LOGIN} 
+		where USER_ID=#{USER_ID}
+	</update>
+	
+	
+	<!-- 查询商家详细信息 -->
+	<!-- 查询商家列表 -->
+	<select id="getShopInfo" parameterType="pd" resultType="pd">
+		select s_name,s_address,s_picture_urls pictures from shop where s_id = ${s_id}
+	</select>
+	
+	
+	
+</mapper>

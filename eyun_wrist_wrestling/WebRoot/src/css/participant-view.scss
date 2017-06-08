@@ -1,0 +1,75 @@
+body {
+  color: #545454
+}
+
+.vs-style, .vs-style > ul {
+  position: relative;
+  width: 100%;
+  height: 3.81rem
+}
+
+.vs-style {
+  border-bottom: 1px solid #e6e6e6;
+  position: relative
+}
+
+.vs-style > ul > li {
+  width: 100%;
+  height: inherit;
+  float: left;
+  text-align: center
+}
+
+.vs-style > ul > li:last-child {
+  float: right
+}
+
+.head-img {
+  width: 100%;
+  margin-bottom: .5rem;
+  margin-top: .55rem
+}
+
+.head-img > div {
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  box-shadow: 0 5px 8px 3px #aaa
+}
+
+.head-img > div > img {
+  width: inherit;
+  height: inherit;
+  border-radius: 50%
+}
+
+.nick-name {
+  height: .26rem;
+  margin-bottom: .72rem;
+  color: #545454
+}
+
+.playing {
+  margin-top: .2rem;
+  width: 100%;
+  text-align: center
+}
+
+.playing img {
+  width: 3.62rem;
+  height: 3.17rem
+}
+
+.right-back {
+  position: absolute;
+  width: .99rem;
+  height: 1.08rem;
+  right: 0;
+  top: 0
+}
+
+.right-back > img {
+  width: inherit;
+  height: inherit
+}

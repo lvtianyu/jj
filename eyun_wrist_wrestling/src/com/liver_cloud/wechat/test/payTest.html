@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>微信支付测试</title>
+<script src='../source/public-js/jQuery-2.1.4.min.js'></script>
+<script src='../source/public-js/locache.min.js'></script>
+<script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var thisPageUrl = location.href;
+
+    $.ajax({
+        type: "get",
+        url: "http://camp.liver-cloud.com/eyun_wrist_wrestling/wechat/initJSSDK.do",
+        data: {
+            pageUrl: thisPageUrl
+        },
+        dataType: "json",
+        beforeSend: function (XMLHttpRequest) {
+            //console.log("beforeSend");
+        },
+        success: function (json) {
+            if (json.result == "ok") {
+                //var signJson = eval("(" + json.values + ")");
+
+                var signJson = json.values,
+                    appid = signJson.appid,
+                    timestamp = signJson.timestamp,
+                    noncestr = signJson.noncestr,
+                    signature = signJson.signature,
+                    url = signJson.url;
+
+                console.log(appid,timestamp,noncestr,signature);
+
+                if(wx != undefined){
+                    //初始化微信sdk
+                    wx.config({
+                        debug: true,
+                        appId: appid,
+                        timestamp: timestamp,
+                        nonceStr: noncestr,
+                        signature: signature,
+                        jsApiList: [
+                            'getLocation',
+                            'chooseWXPay',
+                            'checkJsApi'
+
+                        ]
+                    });
+                }
+
+
+            } else {
+                alert(json.errormsg);
+            }
+        },
+        error: function () {
+            //请求出错处理
+            //console.log("error");
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            //HideLoading();//关闭进度条
+            //alert("complete");
+            //console.log("complete");
+        }
+    });
+	
+    
+    $("button").click(function(){
+    	payAjax()
+        $("p").slideToggle();
+      });
+    
+    function payAjax() {
+        $.ajax({
+            type: "get",
+            url: "http://camp.liver-cloud.com/eyun_wrist_wrestling/" + "wechat/payForGame.do",
+            data: "userId=110&sportUserId=2&gameId=3",
+            dataType: "json",
+            success: function (json) {
+                if (json.result == "ok") {
+
+                    var vj = json.values;
+
+                    wx.chooseWXPay({
+                        timestamp: vj.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+                        nonceStr: vj.nonceStr, // 支付签名随机串，不长于 32 位
+                        package: vj.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                        signType: "MD5", // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                        paySign: vj.paySign, // 支付签名
+                        success: function (res) {
+                            // 支付成功后的回调函数，转向预览页
+                        	alert(res);
+                        }
+
+                    });
+                } else {
+                    alert(json.errormsg);
+
+
+                }
+            }
+        });
+    }
+	
+});
+</script>
+<style>
+.pay-sure {
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+
+.pay-sure>div {
+	width: 4.4rem;
+	height: .7rem;
+	display: inline-block;
+	line-height: .7rem;
+	border-radius: .1rem;
+	background-color: #2ccccb;
+	color: #fff;
+}
+</style>
+</head>
+<body>
+	<p>Hello</p>
+	<button class="pay-sure">确认支付</button>
+
+</body>
+</html>

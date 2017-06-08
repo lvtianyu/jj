@@ -1,0 +1,264 @@
+body {
+  color: #fff;
+  background-color: #4d5967
+}
+
+.vs-style, .vs-style > ul {
+  width: 100%;
+  height: 3.81rem
+}
+
+.vs-style {
+  position: relative
+}
+
+.vs-style > div, .vs-style > div > img {
+  width: inherit;
+  height: inherit
+}
+
+.vs-style > ul {
+  position: absolute;
+  top: 0
+}
+
+.vs-style > ul > li {
+  width: 50%;
+  height: inherit;
+  float: left
+}
+
+.vs-style > ul > li:last-child {
+  float: right
+}
+
+.head-img {
+  width: 1.03rem;
+  height: 1.03rem;
+  margin-top: .54rem;
+  margin-bottom: .13rem;
+  margin-left: .7rem
+}
+
+.head-img > div {
+  width: 1.03rem;
+  height: 1.03rem;
+  border-radius: 50%;
+  box-shadow: 0 5px 8px 3px #555
+}
+
+.head-img > div > img {
+  width: inherit;
+  height: inherit;
+  border-radius: 50%
+}
+
+.nick-name {
+  height: .26rem;
+  margin-bottom: .12rem;
+  margin-right: 1.3rem;
+  margin-left: 0;
+  color: #fff
+}
+
+.support-someone {
+  width: 1.1rem;
+  height: .45rem;
+  background-color: #6acfed;
+  box-shadow: 0 3px 3px #6acfed;
+  text-align: center;
+  color: #fff;
+  border-radius: .05rem;
+  margin-bottom: .2rem;
+  line-height: .45rem
+}
+
+.frist-people .support-someone {
+  margin-left: .7rem
+}
+
+.support-num {
+  height: .21rem;
+  color: #fff;
+  font-size: .22rem;
+  margin: 0 1.27rem .12rem .07rem
+}
+
+.nick-name, .support-num {
+  text-align: center
+}
+
+.second-people .head-img {
+  margin-right: .7rem;
+  margin-left: 2.12rem
+}
+
+.second-people .nick-name {
+  margin-left: 1.5rem;
+  margin-right: 0
+}
+
+.second-people .support-num {
+  margin: 0 .37rem .12rem 1.87rem
+}
+
+.second-people .support-someone {
+  margin-right: .7rem;
+  margin-left: 2.07rem
+}
+
+.modal-public {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center
+}
+
+.pay-game {
+  color: #545454;
+  width: 5.2rem;
+  background-color: #fff;
+  margin-top: 50%;
+  display: inline-block;
+  border-radius: .1rem;
+  font-size: .28rem
+}
+
+.pay-game > ul > li {
+  width: 100%
+}
+
+.pay-game > ul > .title {
+  width: inherit;
+  height: .8rem;
+  text-align: left
+}
+
+.pay-game > ul > .title > b {
+  width: .3rem;
+  height: .3rem;
+  margin-left: .3rem;
+  margin-right: 1.38rem
+}
+
+.pay-game > ul > .title > b, .pay-game > ul > .title > span {
+  margin-bottom: .22rem;
+  margin-top: .35rem;
+  display: inline-block
+}
+
+.pay-game .text-publicity {
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .2rem
+}
+
+.text-pay-num {
+  height: 1.6rem;
+  color: #333;
+  font-size: .7rem;
+  line-height: 1.6rem;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6
+}
+
+.pay-way > ul {
+  height: .8rem;
+  overflow: hidden;
+  border-bottom: 1px solid #e6e6e6
+}
+
+.pay-way > ul > li {
+  float: left;
+  line-height: .8rem;
+  width: 50%;
+  text-align: left
+}
+
+.pay-way > ul > li:first-child {
+  padding-left: .3rem
+}
+
+.pay-way > ul > li:last-child {
+  text-align: right;
+  padding-right: .3rem
+}
+
+.pay-sure {
+  height: 1.03rem;
+  line-height: 1.03rem
+}
+
+.pay-sure > div {
+  width: 4.4rem;
+  height: .7rem;
+  display: inline-block;
+  line-height: .7rem;
+  border-radius: .1rem;
+  background-color: #2ccccb;
+  color: #fff
+}
+
+.list-show-view {
+  width: 100%;
+  margin-bottom: .72rem
+}
+
+.title-support {
+  border-bottom: 1px solid #424d59
+}
+
+.list-show-view > div {
+  width: inherit;
+  text-align: center;
+  line-height: .75rem
+}
+
+.list-show-view > ul {
+  width: inherit
+}
+
+.list-show-view > ul > li {
+  height: 1.02rem;
+  line-height: 1.02rem
+}
+
+.list-show-view > ul > li > div, .list-show-view > ul > li > ul, .list-show-view > ul > li > ul > li {
+  display: inline-block;
+  line-height: inherit
+}
+
+.list-show-view > ul > li > div {
+  margin-left: .2rem;
+  width: .76rem
+}
+
+.list-show-view > ul > li > ul {
+  width: 6.3rem;
+  border-bottom: 1px solid #424d59
+}
+
+.list-show-view > ul > li > ul > li {
+  width: 49%
+}
+
+.list-show-view > ul > li > div > img {
+  height: .76rem;
+  border-radius: .38rem
+}
+
+.support-money {
+  text-align: right
+}
+
+.nick-name-spectator {
+  padding-left: .3rem
+}
+
+.footer-to-record {
+  background-color: #313a45
+}

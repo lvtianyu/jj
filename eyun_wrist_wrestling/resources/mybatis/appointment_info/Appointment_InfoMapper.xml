@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Appointment_InfoMapper">
+
+	<select id="selectByAdId" parameterType="pd" resultType="pd">
+		select * 
+		from appointment_info
+		where ai_ad_id = #{ad_id}	
+	</select>
+	
+	<insert id="insertInfo" parameterType="pd">
+	insert appointment_info(
+	ai_u_id,ai_g_level,ai_ad_id
+	)values(
+	#{u_id},#{level},#{ai_ad_id}
+	)	
+	</insert>
+	
+	<select id="selectByReferee" parameterType="pd" resultType="pd">
+	select SUM(ai_id) sum, SUM(ai_g_level = 0) level0, SUM(ai_g_level = 1) level1, 
+	SUM(ai_g_level = 2) level2, SUM(ai_g_level = 3) level3
+	from appointment_info
+	where ai_ad_id in(select ad_id 
+	from appointment_date
+	where ad_s_id = #{s_id} and DATE_FORMAT(ad_date, '%Y%m') = #{date}
+	order by ad_date desc)	
+	</select>
+	
+	<select id="selectByDateAndSid" parameterType="pd" resultType="pd">
+	select count(ai_g_level ) sum,SUM(ai_g_level = 0) level0, SUM(ai_g_level = 1) level1, 
+	SUM(ai_g_level = 2) level2, SUM(ai_g_level = 3) level3
+	from appointment_info
+	where ai_ad_id in(select ad_id 
+	from appointment_date
+	where ad_s_id = #{s_id} and ad_date = #{date}
+	order by ad_date desc)	
+	</select>
+	
+	<select id="selectByUidAndAdId" parameterType="pd" resultType="pd">
+	select *
+	from appointment_info
+	where ai_u_id = #{u_id} and ai_ad_id = #{ai_ad_id}
+	</select>
+
+</mapper>

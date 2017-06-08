@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.liver_cloud.platform.model.IdentifyingCode" table="sms_send_log">
+		<id name="id" column="id" type="string">
+			<generator class="uuid" />
+		</id>
+		<property name="phoneNumber" type="java.lang.String">
+			<column name="phone_number" />
+		</property>
+
+		<property name="stateCode" type="java.lang.String">
+			<column name="state_code" />
+		</property>
+
+		<property name="errorContext" type="java.lang.String">
+			<column name="error_context" />
+		</property>
+
+		<property name="identifyingCode" type="java.lang.String">
+			<column name="identifying_code" />
+		</property>
+
+		<property name="createTime" type="java.util.Date">
+			<column name="create_time" />
+		</property>
+
+		<property name="time" type="java.lang.String">
+			<column name="valid_time" />
+		</property>
+
+		<property name="smsType" type="java.lang.String">
+			<column name="sms_type" />
+		</property>
+		<property name="type" type="java.lang.Integer">
+			<column name="type" />
+		</property>
+	</class>
+</hibernate-mapping>
